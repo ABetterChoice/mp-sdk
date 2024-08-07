@@ -32,7 +32,7 @@ var config = {
 - **serverUrl**：可选，数据上报地址域名，默认是 https://data.abetterchoice.cn/。
 - **unitId**: 可选，登陆的用户帐号，等同于调用login接口，若不设置，在login之前都用访客ID做用户ID。
 - **enableAutoExposure**：可选，实验分流使用，默认值为false。如果设置为true，当调用AB实验分流时，曝光数据将自动上报。
-- **enableAutoPoll**：可选，实验分流使用，默认值为true。如果设置为true，实验和功能标志数据将每10分钟轮询并更新。
+- **enableAutoPoll**：可选，实验分流使用，默认值为true。如果设置为true，实验和配置数据将每10分钟轮询并更新。
 
 **注意**：
 
