@@ -62,8 +62,14 @@ ABetterChoice.login('ABC');
 公共事件属性指的就是每个事件都会带有的属性，您可以调用 `setSuperProperties` 来设置公共事件属性，我们推荐您在发送事件前，先设置公共事件属性。对于一些重要的属性，譬如用户的会员等级、来源渠道等，这些属性需要设置在每个事件中，此时您可以将这些属性设置为公共事件属性。
 
 ```typescript
-let commonProperties = {
-  
+var commonProperties = {
+    vipSource : "ABC", //字符串
+    vipLevel : 1,//数字
+    isVip : true,//布尔
+    birthday :  new Date(),//对象
+    object : { key : "value" },//对象
+    object_arr : [ { key : "value" } ],//对象组
+    arr : [ "value" ]//数组
 }
 // 设置公共属性
 ABetterChoice.setCommonProperties(commonProperties);
@@ -144,9 +150,9 @@ ABetterChoice.init(config).then((initResult) => { console.log('初始化结果�
 ABetterChoice.login('ABC');
 // 设置公共事件属性
 var commonProperties = {
-    channel : "ta", //字符串
-    age : 1,//数字
-    isSuccess : true,//布尔
+    vipSource : "ABC", //字符串
+    vipLevel : 1,//数字
+    isVip : true,//布尔
     birthday :  new Date(),//对象
     object : { key : "value" },//对象
     object_arr : [ { key : "value" } ],//对象组
