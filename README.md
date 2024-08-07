@@ -2,14 +2,14 @@
 
 > 在接入前，请先阅读接入前准备
 >
-> 最新版本：v0.0.1 下载小游戏
+> 最新版本：v0.0.1 下载小游戏SDK
 
 ------
 
 ## 一、集成SDK
 
 下载小游戏SDK，在game.js中引入对应的SDK文件：
-[下载小游戏](https://raw.githubusercontent.com/ABetterChoice/mp-sdk/master/abetterchoice.mg.wx.min.js)
+[下载小游戏SDK](https://raw.githubusercontent.com/ABetterChoice/mp-sdk/master/abetterchoice.mg.wx.min.js)
 
 ```typescript
 const ABetterChoice = require('./abetterchoice.mg.wx.min.js')
