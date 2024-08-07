@@ -79,12 +79,12 @@ ABetterChoice.setCommonProperties(commonProperties);
 您可以调用 `track` 来上传事件，建议您根据先前梳理的埋点文档来设置事件的属性以及发送信息的条件，此处以用户购买某商品作为范例：
 
 ```typescript
-ABetterChoice.track({
-    eventName: "product_buy", // 事件名称
-    properties: {
-        product_name: "商品名"
+ABetterChoice.track(
+    "product_buy", // 事件名称
+    {
+	product_name: "商品名"
     } //事件属性
-});
+);
 ```
 
 ### 2.4 获取AB实验
@@ -97,8 +97,11 @@ if (experiment === undefined) {
 	handleView('无命中实验，执行默认版本');
 	return;
 }
-// 现在您可以获取参数并在代码中直接使用这些参数。
+// 现在您可以获取参数并在代码中直接使用这些参数,其中第二个参数为默认值
 const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
+// 其它根据平台配置的值类型进行获取不同的类型值
+// const showBannerStr = experiment?.getStringValue('show_banner_str', 'banner');
+// const showBannerNumber = experiment?.getNumberValue('show_banner_number', 1000);
 ```
 
 ### 2.5 实验曝光
@@ -113,8 +116,11 @@ ABetterChoice.logExperimentExposure(experiment);
 ```typescript
 // 获取配置开关名为：new_feature_flag的配置开关值信息
 const configInfo = ABetterChoice.getConfig("new_feature_flag");
-// 获取对应配置开关的参数值
+// 获取对应配置开关的参数值,其中参数为默认值
 const boolValue = configInfo?.getBoolValue(false);
+// 其它根据平台配置的值类型进行获取不同的类型值
+// const stringValue = configInfo?.getStringValue('banner');
+// const numberValue = configInfo?.getNumberValue(1000);
 ```
 
 ## 三、最佳实践
@@ -150,8 +156,8 @@ ABetterChoice.setCommonProperties(commonProperties);
 
 //发送事件
 ABetterChoice.track(
-    eventName: "product_buy", // 事件名称
-    properties: {
+    "product_buy", // 事件名称
+    {
         product_name: "商品名"
     } //事件属性
 );
