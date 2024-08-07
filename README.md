@@ -171,7 +171,7 @@ ABetterChoice.track(
 // 获取实验分流信息
 const experiment = ABetterChoice.getExperiment('abc_layer_name');
 // 获取实验配置的参数值并在代码中直接使用这些参数,若获取不到，则可以设置第二个参数，默认为true
-const shouldShowBanner = experiment.getBoolValue("should_show_banner", true);
+const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
 if(shouldShowBanner) {
   handleView('执行显示Banner业务逻辑');
 } else {
@@ -182,5 +182,6 @@ ABetterChoice.logExperimentExposure(experiment);
 
 // 获取配置开关名为：new_feature_flag的配置开关值信息
 const configInfo = ABetterChoice.getConfig("new_feature_flag");
+const strValue = configInfo?.getStringValue('defaultValue');
 ```
 
