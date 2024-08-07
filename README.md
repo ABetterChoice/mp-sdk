@@ -98,7 +98,7 @@ if (experiment === undefined) {
 	return;
 }
 // 现在您可以获取参数并在代码中直接使用这些参数。
-const shouldShowBanner = experiment.getBoolValue("should_show_banner", true);
+const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
 ```
 
 ### 2.5 实验曝光
@@ -112,9 +112,9 @@ ABetterChoice.logExperimentExposure(experiment);
 
 ```typescript
 // 获取配置开关名为：new_feature_flag的配置开关值信息
-const featureFlagInfo = ABetterChoice.getFeatureFlag("new_feature_flag");
+const configInfo = ABetterChoice.getConfig("new_feature_flag");
 // 获取对应配置开关的参数值
-const boolValue = featureFlagInfo.getBoolValue(false);
+const boolValue = configInfo?.getBoolValue(false);
 ```
 
 ## 三、最佳实践
@@ -158,7 +158,7 @@ ABetterChoice.track(
 
 // 获取实验分流信息
 const experiment = ABetterChoice.getExperiment('abc_layer_name');
-// 获取实验配置的参数值并在代码中直接使用这些参数。
+// 获取实验配置的参数值并在代码中直接使用这些参数,若获取不到，则可以设置第二个参数，默认为true
 const shouldShowBanner = experiment.getBoolValue("should_show_banner", true);
 if(shouldShowBanner) {
   handleView('执行显示Banner业务逻辑');
@@ -169,6 +169,6 @@ if(shouldShowBanner) {
 ABetterChoice.logExperimentExposure(experiment);
 
 // 获取配置开关名为：new_feature_flag的配置开关值信息
-const configObj = ABetterChoice.getConfig(["new_feature_flag"]);
+const configInfo = ABetterChoice.getConfig("new_feature_flag");
 ```
 
