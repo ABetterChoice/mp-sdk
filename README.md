@@ -18,7 +18,7 @@ const ABetterChoice = require('./abetterchoice.mg.wx.min.js')
 ```typescript
 var config = {
   gameId: "YOUR_GAME_ID", //项目游戏ID，必选，可以在ABetterChoice平台管理页查看
-  secretKey: "YOUR_SECRET_KEY"，//项目API KEY，必选，可以在ABetterChoice平台管理页查看
+  secretKey: "YOUR_SECRET_KEY", //项目API KEY，必选，可以在ABetterChoice平台管理页查看
   autoTrack: {   // 可选，自动采集配置，默认全部关闭
     mgShow: true,  // 自动采集，小程序启动，或从后台进入前台，可选
     mgHide: true,  // 自动采集，小程序从前台进入后台，可选
@@ -131,7 +131,7 @@ const boolValue = configInfo?.getBoolValue(false);
 
 ## 三、最佳实践
 
-[下载小游戏 SDK (下载小游戏)](https://download.thinkingdata.cn/client/release/ta_mg_sdk.zip), 在 game.js 中引入对应的 SDK 文件，引入 SDK 之后，您就可以创建 SDK 实例，开始上报数据了：
+[下载小游戏 SDK](https://download.thinkingdata.cn/client/release/ta_mg_sdk.zip), 在 game.js 中引入对应的 SDK 文件，引入 SDK 之后，您就可以创建 SDK 实例，开始上报数据了：
 
 ```typescript
 const ABetterChoice = require("./abetterchoice.mg.wx.min.js");
