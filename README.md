@@ -145,43 +145,52 @@ var config = {
   }
 };
 // 初始化SDK，必须先调用，确保SDK初始化成功后再执行功能方法
-ABetterChoice.init(config).then((initResult) => { console.log('初始化结果：' + initResult) });
-// 用户的登录唯一标识，此数据对应上报数据里的user_id，此时user_id的值为ABC
-ABetterChoice.login('ABC');
-// 设置公共事件属性
-var commonProperties = {
-    vipSource : "ABC", //字符串
-    vipLevel : 1,//数字
-    isVip : true,//布尔
-    birthday :  new Date(),//对象
-    object : { key : "value" },//对象
-    object_arr : [ { key : "value" } ],//对象组
-    arr : [ "value" ]//数组
-};
-ABetterChoice.setCommonProperties(commonProperties);
+ABetterChoice.init(config).then((initResult) => {
+    console.log('初始化结果：' + initResult)
+    // 用户的登录唯一标识，此数据对应上报数据里的user_id，此时user_id的值为ABC
+    ABetterChoice.login('ABC');
+    // 设置公共事件属性
+    var commonProperties = {
+        vipSource: "ABC", //字符串
+        vipLevel: 1,//数字
+        isVip: true,//布尔
+        birthday: new Date(),//对象
+        object: { key: "value" },//对象
+        object_arr: [{ key: "value" }],//对象组
+        arr: ["value"]//数组
+    };
+    ABetterChoice.setCommonProperties(commonProperties);
 
-//发送事件
-ABetterChoice.track(
-    "product_buy", // 事件名称
-    {
-        product_name: "商品名"
-    } //事件属性
-);
+    //发送事件
+    ABetterChoice.track(
+        "product_buy", // 事件名称
+        {
+            product_name: "商品名"
+        } //事件属性
+    );
+    
+    /*
+         // 获取实验分流信息
+        const experiment = ABetterChoice.getExperiment('abc_layer_name');
+        // 获取实验配置的参数值并在代码中直接使用这些参数,若获取不到，则可以设置第二个参数，默认为true
+        const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
+        if (shouldShowBanner) {
+            // 执行显示Banner业务逻辑
+        } else {
+            // 执行不显示Banner业务逻辑
+        }
+        // 根据上面获取到的实验信息主动进行曝光
+        ABetterChoice.logExperimentExposure(experiment);
 
-// 获取实验分流信息
-const experiment = ABetterChoice.getExperiment('abc_layer_name');
-// 获取实验配置的参数值并在代码中直接使用这些参数,若获取不到，则可以设置第二个参数，默认为true
-const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
-if(shouldShowBanner) {
-  handleView('执行显示Banner业务逻辑');
-} else {
-  handleView('执行不显示Banner业务逻辑');
-}
-// 根据上面获取到的实验信息主动进行曝光
-ABetterChoice.logExperimentExposure(experiment);
-
-// 获取配置开关名为：new_feature_flag的配置开关值信息
-const configInfo = ABetterChoice.getConfig("new_feature_flag");
-const strValue = configInfo?.getStringValue('defaultValue');
+        // 获取配置开关名为：new_feature_flag的配置开关值信息
+        const configInfo = ABetterChoice.getConfig("new_feature_flag");
+        const strValue = configInfo?.getStringValue('defaultValue');
+        if(strValue === 'xx_open'){
+            // 打开xx功能
+        } else {
+            // 关闭xx功能
+        }
+     */
+});
 ```
 
