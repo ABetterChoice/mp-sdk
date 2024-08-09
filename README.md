@@ -105,7 +105,7 @@ if (experiment === undefined) {
 }
 // 现在您可以获取参数并在代码中直接使用这些参数,其中第二个参数为默认值
 const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
-// 其它根据平台配置的值类型进行获取不同的类型值
+// 其它根据平台配置的值类型进而获取不同的类型值
 // const showBannerStr = experiment?.getStringValue('show_banner_str', 'banner');
 // const showBannerNumber = experiment?.getNumberValue('show_banner_number', 1000);
 ```
@@ -124,7 +124,7 @@ ABetterChoice.logExperimentExposure(experiment);
 const configInfo = ABetterChoice.getConfig("new_feature_flag");
 // 获取对应配置开关的参数值,其中参数为默认值
 const boolValue = configInfo?.getBoolValue(false);
-// 其它根据平台配置的值类型进行获取不同的类型值
+// 其它根据平台配置的值类型进而获取不同的类型值
 // const stringValue = configInfo?.getStringValue('banner');
 // const numberValue = configInfo?.getNumberValue(1000);
 ```
