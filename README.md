@@ -172,7 +172,7 @@ ABetterChoice.init(config).then((initResult) => {
     /*
          // 获取实验分流信息
         const experiment = ABetterChoice.getExperiment('abc_layer_name');
-        // 获取实验配置的参数值并在代码中直接使用这些参数,若获取不到，则可以设置第二个参数，默认为true
+        // 获取实验配置的参数should_show_banner的取值，默认为true
         const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
         if (shouldShowBanner) {
             // 执行显示Banner业务逻辑
