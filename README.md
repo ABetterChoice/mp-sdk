@@ -9,7 +9,7 @@
 ## 一、集成SDK
 
 下载小游戏SDK，在game.js中引入对应的SDK文件：
-[下载小游戏SDK](https://raw.githubusercontent.com/ABetterChoice/mp-sdk/master/abetterchoice.mg.wx.min.js)
+[下载小游戏SDK](https://github.com/ABetterChoice/mp-sdk/archive/refs/heads/master.zip)
 
 ```typescript
 const ABetterChoice = require('./abetterchoice.mg.wx.min.js')
@@ -131,7 +131,7 @@ const boolValue = configInfo?.getBoolValue(false);
 
 ## 三、最佳实践
 
-[下载小游戏 SDK](https://raw.githubusercontent.com/ABetterChoice/mp-sdk/master/abetterchoice.mg.wx.min.js)， 在 game.js 中引入对应的 SDK 文件，引入 SDK 之后，您就可以创建 SDK 实例，开始上报数据了：
+[下载小游戏 SDK]([https://raw.githubusercontent.com/ABetterChoice/mp-sdk/master/abetterchoice.mg.wx.min.js](https://github.com/ABetterChoice/mp-sdk/archive/refs/heads/master.zip))， 在 game.js 中引入对应的 SDK 文件，引入 SDK 之后，您就可以创建 SDK 实例，开始上报数据了：
 
 ```typescript
 const ABetterChoice = require("./abetterchoice.mg.wx.min.js");
