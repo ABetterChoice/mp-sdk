@@ -168,29 +168,27 @@ ABetterChoice.init(config).then((initResult) => {
             product_name: "商品名"
         } //事件属性
     );
-    
-    /*
-         // 获取实验分流信息
-        const experiment = ABetterChoice.getExperiment('abc_layer_name');
-        // 获取实验配置的参数should_show_banner的取值，默认为true
-        const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
-        if (shouldShowBanner) {
-            // 执行显示Banner业务逻辑
-        } else {
-            // 执行不显示Banner业务逻辑
-        }
-        // 根据上面获取到的实验信息主动进行曝光
-        ABetterChoice.logExperimentExposure(experiment);
 
-        // 获取配置开关名为：new_feature_flag的配置开关值信息
-        const configInfo = ABetterChoice.getConfig("new_feature_flag");
-        const strValue = configInfo?.getStringValue('defaultValue');
-        if(strValue === 'xx_open'){
-            // 打开xx功能
-        } else {
-            // 关闭xx功能
-        }
-     */
+    // 获取实验分流信息
+    const experiment = ABetterChoice.getExperiment('abc_layer_name');
+    // 获取实验配置的参数should_show_banner的取值，默认为true
+    const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
+    if (shouldShowBanner) {
+        // 执行显示Banner业务逻辑
+    } else {
+        // 执行不显示Banner业务逻辑
+    }
+    // 根据上面获取到的实验信息主动进行曝光
+    ABetterChoice.logExperimentExposure(experiment);
+
+    // 获取配置开关名为：new_feature_flag的配置开关值信息
+    const configInfo = ABetterChoice.getConfig("new_feature_flag");
+    const strValue = configInfo?.getStringValue('defaultValue');
+    if(strValue === 'xx_open'){
+        // 打开xx功能
+    } else {
+        // 关闭xx功能
+    }
 });
 ```
 
