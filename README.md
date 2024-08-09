@@ -147,8 +147,10 @@ var config = {
 // 初始化SDK，必须先调用，确保SDK初始化成功后再执行功能方法
 ABetterChoice.init(config).then((initResult) => {
     console.log('初始化结果：' + initResult)
+
     // 用户的登录唯一标识，此数据对应上报数据里的user_id，此时user_id的值为ABC
     ABetterChoice.login('ABC');
+
     // 设置公共事件属性
     var commonProperties = {
         vipSource: "ABC", //字符串
