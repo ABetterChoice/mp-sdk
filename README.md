@@ -137,7 +137,7 @@ const boolValue = configInfo?.getBoolValue(false);
 const ABetterChoice = require("./abetterchoice.mg.wx.min.js");
 var config = {
   gameId: "YOUR_GAME_ID", //项目游戏ID，必选，可以在ABetterChoice平台管理页查看
-  secretKey: "YOUR_SECRET_KEY"，//项目API KEY，必选，可以在ABetterChoice平台管理页查看
+  secretKey: "YOUR_SECRET_KEY", //项目API KEY，必选，可以在ABetterChoice平台管理页查看
   autoTrack: {   // 自动采集配置
      mgShow: true,  // 自动采集，小程序启动，或从后台进入前台
      mgHide: true,  // 自动采集，小程序从前台进入后台
