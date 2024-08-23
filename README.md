@@ -6,10 +6,21 @@
 
 ------
 
-## 一、集成SDK
+# 快速集成
 
-下载小游戏SDK，在game.js中引入对应的SDK文件：
-[下载小游戏SDK](https://github.com/ABetterChoice/mp-sdk/archive/refs/heads/master.zip)
+## 集成前准备
+
+您需要在设置模块找到当前游戏的 Game ID 和 API Key
+
+- Game ID：小游戏在本平台的唯一标识，创建小游戏时由本平台自动生成
+
+- API Key：授权 SDK 访问小游戏数据的密钥，由平台提供，确保数据安全传输和访问控制
+
+![IMG](https://cdn.abetterchoice.cn/static/cms/4eb92c5def.png)
+
+## 快速集成
+
+[下载小游戏SDK](https://github.com/ABetterChoice/mp-sdk/archive/refs/heads/master.zip)，在game.js中引入对应的SDK文件：
 
 ```typescript
 const ABetterChoice = require('./abetterchoice.mg.wx.min.js')
@@ -18,7 +29,7 @@ const ABetterChoice = require('./abetterchoice.mg.wx.min.js')
 ```typescript
 var config = {
   gameId: "YOUR_GAME_ID", //项目游戏ID，必选，可以在精益优策引擎平台管理页查看
-  secretKey: "YOUR_SECRET_KEY", //项目API KEY，必选，可以在精益优策引擎平台管理页查看
+  apiKey: "YOUR_API_KEY", //项目API KEY，必选，可以在精益优策引擎平台管理页查看
   autoTrack: {   // 可选，自动采集配置，默认全部关闭
     mgShow: true,  // 自动采集，小程序启动，或从后台进入前台，可选
     mgHide: true,  // 自动采集，小程序从前台进入后台，可选
@@ -44,11 +55,11 @@ var config = {
 >
 > 若您使用的是私有化部署版本，请与运维同学确认上报地址
 
-## 二、常用功能
+# 常用功能
 
 在使用常用功能之前，请**确保SDK已初始化成功**，同时请先知悉当前的用户生成规则，SDK默认会生成随机数作为访客ID，并持久化存储访客ID在本地；用户未登录之前，会以访客ID作为身份识别ID。若用户登陆之后，将采用登陆ID做为用户的唯一识别标志。注意:访客 ID 在用户清理缓存 以及更换设备时将会发生变更。
 
-### 2.1 设置帐号ID
+### 设置帐号ID
 
 在用户进行登录时，可调用 `login` 来设置用户的账号 ID， SDK将会以账号 ID 作为身份识别 ID，并且设置的账号 ID 将会在调用 `logout` 之前一直保留。多次调用 `login` 将覆盖先前的账号 ID。
 
@@ -57,9 +68,9 @@ var config = {
 ABetterChoice.login('ABC');
 ```
 
-### 2.2 设置公共属性
+### 设置公共属性
 
-公共事件属性指的就是每个事件都会带有的属性，您可以调用 `setSuperProperties` 来设置公共事件属性，我们推荐您在发送事件前，先设置公共事件属性。对于一些重要的属性，譬如用户的会员等级、来源渠道等，这些属性需要设置在每个事件中，此时您可以将这些属性设置为公共事件属性。
+公共事件属性指的就是每个事件都会带有的属性，您可以调用 `setCommonProperties` 来设置公共事件属性，我们推荐您在发送事件前，先设置公共事件属性。对于一些重要的属性，譬如用户的会员等级、来源渠道等，这些属性需要设置在每个事件中，此时您可以将这些属性设置为公共事件属性。
 
 ```typescript
 var commonProperties = {
@@ -80,7 +91,7 @@ ABetterChoice.setCommonProperties(commonProperties);
 - Key 为该属性的名称，为字符串类型，规定只能以字母开头，包含数字，字母和下划线 "_"，长度最大为 50 个字符。
 - Value 为该属性的值，目前仅支持字符串。
 
-### 2.3 发送事件
+### 发送事件
 
 您可以调用 `track` 来上传事件，建议您根据先前梳理的埋点文档来设置事件的属性以及发送信息的条件，此处以用户购买某商品作为范例：
 
@@ -88,12 +99,12 @@ ABetterChoice.setCommonProperties(commonProperties);
 ABetterChoice.track(
     "product_buy", // 事件名称
     {
-	product_name: "商品名"
+		product_name: "商品名"
     } //事件属性
 );
 ```
 
-### 2.4 获取AB实验
+### 获取AB实验
 
 ```typescript
 // 获取实验分流信息
@@ -110,14 +121,14 @@ const shouldShowBanner = experiment?.getBoolValue("should_show_banner", true);
 // const showBannerNumber = experiment?.getNumberValue('show_banner_number', 1000);
 ```
 
-### 2.5 实验曝光
+### 实验曝光
 
 ```typescript
 // 当未设置enableAutoExposure时，您可以根据上面获取的实验分流信息进行手动记录曝光
 ABetterChoice.logExperimentExposure(experiment);
 ```
 
-### 2.6 获取配置开关
+### 获取配置开关
 
 ```typescript
 // 获取配置开关名为：new_feature_flag的配置开关值信息
@@ -129,7 +140,7 @@ const boolValue = configInfo?.getBoolValue(false);
 // const numberValue = configInfo?.getNumberValue(1000);
 ```
 
-## 三、最佳实践
+# 最佳实践
 
 [下载小游戏 SDK](https://github.com/ABetterChoice/mp-sdk/archive/refs/heads/master.zip)， 在 game.js 中引入对应的 SDK 文件，引入 SDK 之后，您就可以创建 SDK 实例，开始上报数据了：
 
@@ -137,7 +148,7 @@ const boolValue = configInfo?.getBoolValue(false);
 const ABetterChoice = require("./abetterchoice.mg.wx.min.js");
 var config = {
   gameId: "YOUR_GAME_ID", //项目游戏ID，必选，可以在精益优策引擎平台管理页查看
-  secretKey: "YOUR_SECRET_KEY", //项目API KEY，必选，可以在精益优策引擎平台管理页查看
+  apiKey: "YOUR_API_KEY", //项目API KEY，必选，可以在精益优策引擎平台管理页查看
   autoTrack: {   // 自动采集配置
      mgShow: true,  // 自动采集，小程序启动，或从后台进入前台
      mgHide: true,  // 自动采集，小程序从前台进入后台
@@ -193,4 +204,3 @@ ABetterChoice.init(config).then((initResult) => {
     }
 });
 ```
-
