@@ -99,7 +99,7 @@ ABetterChoice.setCommonProperties(commonProperties);
 ABetterChoice.track(
     "product_buy", // 事件名称
     {
-		product_name: "商品名"
+	product_name: "商品名"
     } //事件属性
 );
 ```
