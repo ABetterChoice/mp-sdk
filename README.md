@@ -2,7 +2,7 @@
 
 > 在接入前，请先阅读接入前准备
 >
-> 最新版本：v0.0.6 下载小游戏SDK
+> 最新版本：[Releases](https://github.com/ABetterChoice/mp-sdk/releases), 下载小游戏SDK
 
 ------
 
